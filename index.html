@@ -1,0 +1,433 @@
+	<!-- 文書がHTML5で作成されたものであることを宣言するためのDOCTYPE宣言 -->
+	<!DOCTYPE html>
+
+	<!-- ここからhtmlを書いていくスタートのタグ -->
+	<html>
+
+	<!-- ここから閲覧者に向けて表示されないコンテンツ
+	(CSS、文字コード等)をまとめるための入れ物を書いていく
+	headのスタートのタグ -->
+	<head>
+
+		<!-- 文字コードを UTF-8 に設定しています。
+		UTF-8 には人類が使う言語の殆どの文字が含まれています。
+		タグがペアになっていないものもあります -->
+		<meta charset="utf-8">
+
+		<link rel="shortcut icon" href="favicon.ico">
+
+
+
+		<!-- ページのタイトルを指定しています。 -->
+		<title>ねこじゃんけん</title>
+			<style>
+		  		body {
+					background: #27252b;
+				}
+				
+				body { line-height: 10% }
+				
+				
+				header{
+					max-width: 1000px;
+					margin: 0 auto;
+				}
+
+				
+				
+				p{
+					color:white; text-align: right; font-family: 'M PLUS Rounded 1c', sans-serif;
+				}
+				
+				h1{
+					color:white; text-align: right; font-family: 'M PLUS Rounded 1c', sans-serif;
+				}
+				
+				
+				.resizeimage img { width: 75%; }
+				
+				
+				/* グーチョキパーのボタン */
+				.button {
+					display      : inline-block;
+					border-radius: 5%;                   /* 角丸 */
+					opacity      : 1;                    /* 透明度 */
+					cursor       : pointer;              /* カーソル形状 */
+					transition   : .3s;                  /* なめらか変化 */
+				}
+				
+				.button:hover {
+				opacity      : 0.8;                  /* 透明度 */
+				}
+				
+				/* ふわっと表示 */
+				body, div {
+					animation: fadeIn 1s ease 0.1s 1 normal;
+					-webkit-animation: fadeIn 2s ease 0s 1 normal;
+				}
+
+				@keyframes fadeIn {
+					0% {opacity: 0}
+					100% {opacity: 1}
+				}
+
+				@-webkit-keyframes fadeIn {
+					0% {opacity: 0}
+					100% {opacity: 1}
+				}
+				
+				.roundedCat {
+					border-radius: 0.5%;
+				}
+				
+				.roundedHand {
+					border-radius: 5%;
+				}
+				
+
+				
+				#counter{
+					position:fixed;
+					right:0px;
+					bottom:0px;
+				}
+					
+					
+					
+				#startBtn,#page2,#page3{
+					margin: 20px;
+					position: absolute;
+					top: 50%;
+					left: 50%;
+ 					transform: translate(-50%,-50%);
+				}
+				
+				
+				.hand{
+					margin: 30px;
+					}
+				
+				
+				#resultPanel{
+					display: inline-block;
+					width:70%;
+					height:50%
+				}
+				
+				#lastBtn{
+					text-align:center;
+				}	
+				
+				
+				#demo5{
+				display: inline-block;
+				vertical-align: middle;
+				margin-right:10%;
+				}   
+				
+				#demo6{
+				display: inline-block;
+				vertical-align: middle;
+				margin-left:10%;
+				}
+				
+				#replayB{
+				align:left;
+					margin:30px;
+				}
+				
+				#operator{
+					display: inline-block; vertical-align: middle;
+					color:white; font-size: 300%; font-weight:1000; font-family: 'M PLUS Rounded 1c', sans-serif;
+				}
+				
+				
+			</style>
+		
+		<link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@100&display=swap" rel="stylesheet">
+	<!-- ここがheadのゴールのタグ -->
+	</head>
+
+	<!-- ここから閲覧者に対して見せたいものすべてを含みます。
+	文字、画像、ビデオ、ゲーム、再生できる音楽など、
+	どんなものでものスタートのタグ -->
+	<body>
+
+		<header>
+		<!-- 文字列表示 右寄せcss?-->
+		
+			<p>rock scissors paper vs the cats</p>
+
+			<h1>ねこじゃんけん</h1>
+
+			<div id=counter><table border="0" cellspacing="0" cellpadding="0"><tr><td align="center">
+			<a href="http://www.rays-counter.com/"><img src="http://www.rays-counter.com/d465_f8_001/5f35541ce0dd8/" alt="アクセスカウンター" border="0">
+			</a></td></tr><tr><td align="center"><img src="http://www.rays-counter.com/images/counter_01.gif" border="0">
+			<img src="http://www.rays-counter.com/images/counter_02.gif" border="0"><img src="http://www.rays-counter.com/images/counter_03.gif" border="0" alt="">
+			<img src="http://www.rays-counter.com/images/counter_04.gif" border="0"><img src="http://www.rays-counter.com/images/counter_05.gif" border="0" >
+			</td></tr></table></div>
+			
+		</header>
+
+
+	<div id=page1>
+		
+		<div class="item">
+			<!-- 「じゃんけんする？」の画像入れる 中央boxcss? -->
+			<br /><br />
+			<input type="button" id="startBtn" value="play"  onclick="style.display='none'; clickBtn0();"/><br />
+		</div>
+				
+		<!-- 「する」ボタン 中央boxcss? -->
+	</div>
+
+	
+		<div id=page2>
+	
+			<!--ぐーちょきぱーボタン-->
+			
+			<img src="hand/rock.jpg" class="button hand" onclick="goClick()" alt="rock">	
+			<img src="hand/scissors.jpg" class="button hand" onclick="goClick()" alt="scissors">
+			<img src="hand/paper.jpg" class="button hand" onclick="goClick()" alt="paper">
+			
+			<!--<button> グー </button>-->
+			<!--<button>チョキ</button>-->
+			<!--<button> パー </button>-->
+	
+		</div>
+	
+	
+		<div id=page3>
+	
+			<!--◆勝負結果を表示する-->
+	
+			<!-- 勝負後猫の画像表示中央boxcss? -->
+			<p id="demo4"></p>
+			<p id="demo3"></p>
+			
+			
+			<div id=lastBtn>
+			
+				
+				
+				<div id=resultPanel>
+					<div id="demo5">man</div>
+					<div id="operator">operator</div>
+					<div id="demo6">cat</div>
+				</div>
+			
+				<input type="button" id="replayB" value="play again"  onclick="clickBtn3();"/>
+			
+			</div>
+			
+		</div>
+	
+	
+
+
+	<script language="javascript" type="text/javascript">
+	    
+	    
+	document.getElementById('page2').style.display = 'none';
+	document.getElementById('page3').style.display = 'none';
+
+	
+		function clickBtn0() { // スタートボタン
+    	
+			var rsp=["ぐー","ちょき","ぱー"];
+			//rsp＝石、はさみ、ぺーぱー
+		
+			document.getElementById("page2").style.display ="block";
+			document.getElementById("page1").style.display ="none";
+
+
+			//ポップアップではなくジャンケンの手の選択画面
+					
+			document.getElementsByClassName('button')[0].addEventListener('click',() => { number = 0; clickBtn1(); }); 
+			document.getElementsByClassName('button')[1].addEventListener('click',() => { number = 1; clickBtn1(); });
+			document.getElementsByClassName('button')[2].addEventListener('click',() => { number = 2; clickBtn1(); });
+					
+			var number;
+				
+				
+				function goClick() {
+					// クリック時の動作を指定できます
+					location.href = "http://www.cman.jp/";
+				}
+				
+				function clickBtn1(){
+
+					document.getElementById("page2").style.display ="none";
+					document.getElementById("page3").style.display ="block";
+						
+					var pc=(Math.floor(Math.random() * 3));
+					//ランダムに整数だしてくれるやつ。これは３未満。
+					var pcChoice = rsp[pc]
+					var result=(pc - number)
+					//じゃんけんの勝ち負けをどう表現するかを考えるのが結構楽しかったです。
+					
+					var win
+					
+					
+					//あなたの勝ち！
+					if((result==1)||(result==-2)){
+						
+						var min = 0;
+						var max = 4;
+						n = Math.floor( Math.random() * (max + 1 - min) ) + min ;
+				
+						img = new Array();
+				
+						img[0] = "sadCats/0.jpg";
+						img[1] = "sadCats/1.jpg";
+						img[2] = "sadCats/2.jpg";
+						img[3] = "sadCats/3.jpg";
+						img[4] = "sadCats/4.jpg";
+        	
+						document.getElementById('demo4').innerHTML = '<img class="roundedCat" src="' + img[n] + '"> ';
+						
+						
+						if(number == 0){
+							
+							document.getElementById('demo5').innerHTML ='<img class="roundedHand" src="hand/rock.jpg">';
+							document.getElementById('demo6').innerHTML ='<img class="roundedHand" src="hand/catS.jpg">';
+							
+						}	
+							
+							
+						if(number == 1){
+							
+							document.getElementById('demo5').innerHTML ='<img class="roundedHand" src="hand/scissors.jpg">';
+							document.getElementById('demo6').innerHTML ='<img class="roundedHand" src="hand/catP.jpg">';
+							
+						}	
+						
+						
+						if(number == 2){
+							
+							document.getElementById('demo5').innerHTML ='<img class="roundedHand" src="hand/paper.jpg">';
+							document.getElementById('demo6').innerHTML ='<img class="roundedHand" src="hand/catR.jpg">';
+							
+						}
+						 
+						document.getElementById('operator').innerHTML = "＞";
+						
+					}
+
+
+					//ねこの勝ち！
+					if((result==-1)||(result==2)){
+						
+						var min = 0;
+						var max = 5;
+
+						n = Math.floor( Math.random() * (max + 1 - min) ) + min ;
+							
+							img = new Array();
+							
+							img[0] = "happyCats/0.jpg";
+							img[1] = "happyCats/1.jpg";
+							img[2] = "happyCats/2.jpg";
+							img[3] = "happyCats/3.jpg";
+							img[4] = "happyCats/4.jpg";
+							img[5] = "happyCats/5.jpg";
+
+
+						document.getElementById('demo4').innerHTML = '<img class="roundedCat" src="' + img[n] + '"> ';
+						//document.getElementById('demo3').innerHTML = ' ねこの勝ち！';
+						
+						
+						if(number == 0){
+							
+							document.getElementById('demo5').innerHTML ='<img class="roundedHand" src="hand/rock.jpg">';
+							document.getElementById('demo6').innerHTML ='<img class="roundedHand" src="hand/catP.jpg">';
+							
+						}	
+							
+							
+						if(number == 1){
+							
+							document.getElementById('demo5').innerHTML ='<img class="roundedHand" src="hand/scissors.jpg">';
+							document.getElementById('demo6').innerHTML ='<img class="roundedHand" src="hand/catR.jpg">';
+							
+						}	
+						
+						
+						if(number == 2){
+							
+							document.getElementById('demo5').innerHTML ='<img class="roundedHand" src="hand/paper.jpg">';
+							document.getElementById('demo6').innerHTML ='<img class="roundedHand" src="hand/catS.jpg">';
+							
+						}
+
+						document.getElementById('operator').innerHTML = "＜";
+					}
+
+
+					//win="あいこ！"
+					if(result==0){
+							
+						var min = 0;
+						var max = 5;
+
+						n = Math.floor( Math.random() * (max + 1 - min) ) + min ;
+							
+							img = new Array();
+							
+							img[0] = "blankCats/0.jpg";
+							img[1] = "blankCats/1.jpg";
+							img[2] = "blankCats/2.jpg";
+							img[3] = "blankCats/3.jpg";
+							img[4] = "blankCats/4.jpg";
+							img[5] = "blankCats/5.jpg";
+
+						document.getElementById('demo4').innerHTML = '<img class="roundedCat" src="' + img[n] + '"> ';
+						//document.getElementById('demo3').innerHTML = 'あいこ！';
+						
+						
+						if(number == 0){
+							
+							document.getElementById('demo5').innerHTML ='<img class="roundedHand" src="hand/rock.jpg">';
+							document.getElementById('demo6').innerHTML ='<img class="roundedHand" src="hand/catR.jpg">';
+							
+						}	
+							
+							
+						if(number == 1){
+							
+							document.getElementById('demo5').innerHTML ='<img class="roundedHand" src="hand/scissors.jpg">';
+							document.getElementById('demo6').innerHTML ='<img class="roundedHand" src="hand/catS.jpg">';
+							
+						}	
+						
+						
+						if(number == 2){
+							
+							document.getElementById('demo5').innerHTML ='<img class="roundedHand" src="hand/paper.jpg">';
+							document.getElementById('demo6').innerHTML ='<img class="roundedHand" src="hand/catP.jpg">';
+							
+						}
+						
+						document.getElementById('operator').innerHTML = "＝";
+					}
+					
+				//◆勝敗判定表示：→ブラウザ画面上にする
+				
+				}
+			
+		};
+
+		function clickBtn3() { // リプレイボタン
+
+			document.getElementById("page2").style.display ="block";
+			document.getElementById("page3").style.display ="none";
+		}
+
+	</script>
+
+	
+    
+	<!-- ここがbodyのゴールのタグ -->
+	</body>
+	<!-- ここまでhtmlを書いていくゴールのタグ -->
+	</html>      
